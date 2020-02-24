@@ -10,6 +10,47 @@ public class Position2D extends Position {
 	}
 	
 	/**
+	 * Gets the next position given a direction and a plateau which can't be exited of
+	 */
+	@Override
+	public void moveToDirection(Direction dir, Plateau plateau) throws ProgramException{ 
+		switch (dir) {
+		case N:
+			if (getY() + 1 <= plateau.getHeight()) {
+				setY(getY() + 1);
+			} else {
+				throw new ProgramException("You tried to leave the plateau.");
+			}
+			break;
+		case S:
+			if (getY() - 1 >= 0) {
+				setY(getY() - 1);
+			} else {
+				throw new ProgramException("You tried to leave the plateau.");
+			}
+			break;
+		case E:
+			if (getX() + 1 <= plateau.getWidth()) {
+				setX(getX() + 1);
+			} else {
+				throw new ProgramException("You tried to leave the plateau.");
+			}
+			break;
+		case W:
+			if (getX() - 1 >= 0) {
+				setX(getX() - 1);
+			} else {
+				throw new ProgramException("You tried to leave the plateau.");
+			}
+			break;
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s %s", getX(), getY());
+	}
+	/**
 	 * Gets the X coordinate
 	 * @return
 	 */

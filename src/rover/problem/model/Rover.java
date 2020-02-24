@@ -3,16 +3,15 @@ package rover.problem.model;
 public class Rover {
 	private Position position;
 	private Direction direction;
-	private Program program;
-	
-	public Rover(Position pos, Direction dir, Program prog) {
+		
+	public Rover(Position pos, Direction dir) {
 		setPosition(pos);
 		setDirection(dir);
-		setProgram(prog);
 	}
 	
-	public void ExecuteProgram() {
-		
+	public Rover(Rover rover) {
+		setPosition(rover.getPosition());
+		setDirection(rover.getDirection());
 	}
 	
 	@Override
@@ -21,7 +20,6 @@ public class Rover {
 	}
 	
 	// Getters and Setters
-	
 	/**
 	 * Returns the position
 	 * @return
@@ -52,21 +50,5 @@ public class Rover {
 	 */
 	public void setDirection(Direction dir) {
 		this.direction = dir;
-	}
-	
-	/**
-	 * Gets the program of the Rover
-	 * @return
-	 */
-	private Program getProgram() {
-		return program;
-	}
-
-	/**
-	 * Sets the program of the rover
-	 * @param program
-	 */
-	private void setProgram(Program program) {
-		this.program = program;
 	}
 }
