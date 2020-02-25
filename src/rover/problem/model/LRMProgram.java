@@ -10,19 +10,13 @@ public class LRMProgram extends Program{
 		for (char command : getCommands().toCharArray()) {
 			switch (command) {
 				case 'L':
-						rover.setDirection(Direction.GetLeft(rover.getDirection()));
+					rover.setDirection(Direction.GetLeft(rover.getDirection()));
 					break;
 				case 'R':
-						rover.setDirection(Direction.GetRight(rover.getDirection()));
+					rover.setDirection(Direction.GetRight(rover.getDirection()));
 					break;
 				case 'M':
-						try {
-							rover.getPosition().moveToDirection(rover.getDirection(), plateau);
-						} catch(ProgramException p) {
-							// p.printStackTrace();
-							System.err.println(p.getMessage());
-						}
-						
+					rover.getPosition().moveToDirection(rover.getDirection(), plateau);
 					break;
 				default:
 					throw new ProgramException(String.format("Error: Command %c not found", command));

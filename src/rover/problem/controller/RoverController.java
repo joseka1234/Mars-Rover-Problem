@@ -27,6 +27,28 @@ public class RoverController {
 		}
 	}
 	
+	/**
+	 * Adds a rover and a program because it needs to be 1:1 relation.
+	 * @param rover
+	 * @param program
+	 */
+	public void AddRoverProgram(Rover rover, Program program) throws ProgramException{
+		if (rover != null) {
+			getRovers().add(rover);
+		} else {
+			throw new ProgramException("The rover can't be NULL");
+		}
+		
+		if (program != null) {
+			getPrograms().add(program);
+		} else {
+			throw new ProgramException("The program can't be NULL");
+		}
+	}
+	
+	/**
+	 * Print the rovers in the test format
+	 */
 	public void PrintRovers() {
 		for (Rover rov : getRovers()) {
 			System.out.println(rov);
@@ -54,7 +76,7 @@ public class RoverController {
 	 * Get the rovers
 	 * @return
 	 */
-	public ArrayList<Rover> getRovers() {
+	private ArrayList<Rover> getRovers() {
 		return rovers;
 	}
 
@@ -70,7 +92,7 @@ public class RoverController {
 	 * Get the programs
 	 * @return
 	 */
-	public ArrayList<Program> getPrograms() {
+	private ArrayList<Program> getPrograms() {
 		return programs;
 	}
 
