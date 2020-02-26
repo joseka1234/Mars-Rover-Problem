@@ -10,7 +10,7 @@ import main.java.model.ProgramException;
 import main.java.model.Rover;
 import main.java.model.RoverLoadException;
 
-public class Main {	
+public class Main {
 	public Main() {}
 	
 	public static void main(String[] args) throws RoverLoadException, IOException, ProgramException {
@@ -28,8 +28,8 @@ public class Main {
 		}
 		
 		Plateau plateau = new Plateau(plateauWidth, plateauHeight);
-		
 		RoverController controller = new RoverController(plateau);
+		
 		while ((line = br.readLine()) != null) {
 			String[] roverString = line.split(" ");
 			int x = Integer.parseInt(roverString[0]);
@@ -43,6 +43,7 @@ public class Main {
 				throw new RoverLoadException("The rover is outside the plateau");
 			}
 		}
+		
 		controller.ExecuteProgram();
 		controller.PrintRovers();
 		br.close();

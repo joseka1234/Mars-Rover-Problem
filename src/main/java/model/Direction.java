@@ -1,6 +1,7 @@
 package main.java.model;
 
 public enum Direction {
+	// To add new directions we need to add them with a turning to the left every time.
 	N, E, S, W;
 	
 	/**
@@ -9,7 +10,8 @@ public enum Direction {
 	 * @return
 	 */
 	public static Direction GetLeft(Direction dir) {
-		return dir == N ? W : Direction.values()[dir.ordinal() - 1];
+		Direction[] values = Direction.values();
+		return dir.ordinal() == 0 ? values[values.length - 1] : values[dir.ordinal() - 1];
 	}
 		
 	/**
@@ -18,6 +20,7 @@ public enum Direction {
 	 * @return
 	 */
 	public static Direction GetRight(Direction dir) {
-		return dir == W ? N : Direction.values()[dir.ordinal() + 1];
+		Direction[] values = Direction.values();
+		return dir.ordinal() == values.length - 1 ? values[0] : values[dir.ordinal() + 1];
 	}
 }

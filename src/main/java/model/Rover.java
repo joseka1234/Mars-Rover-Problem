@@ -16,7 +16,7 @@ public class Rover {
 	
 	@Override
 	public String toString() {
-		return String.format("%s %s", position.toString(), direction.toString());
+		return String.format("%s %s", getPosition().toString(), getDirection().toString());
 	}
 	
 	// Getters and Setters

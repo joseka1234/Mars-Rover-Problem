@@ -27,9 +27,9 @@ class TestRover {
 	
 	@Test
 	void test_direction() {
-		Direction dir = Direction.N;
-		assertEquals(Direction.W, Direction.GetLeft(dir));
-		assertEquals(Direction.E, Direction.GetRight(dir));
+		assertEquals(Direction.W, Direction.GetLeft(Direction.N));
+		assertEquals(Direction.E, Direction.GetRight(Direction.N));
+		assertEquals(Direction.N, Direction.GetRight(Direction.W));
 	}
 	
 	@Test
