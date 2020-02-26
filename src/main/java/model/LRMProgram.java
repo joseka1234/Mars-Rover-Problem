@@ -1,5 +1,7 @@
 package main.java.model;
 
+import java.util.ArrayList;
+
 public class LRMProgram extends Program{
 	public LRMProgram(String commands) {
 		super(commands);
@@ -9,7 +11,8 @@ public class LRMProgram extends Program{
 	 * Executes the program of a concrete Rover
 	 */
 	@Override
-	public void Execute(Rover rover, Plateau plateau) throws ProgramException {
+	public void Execute(ArrayList<Rover> rovers, int roverIndex, Plateau plateau) throws ProgramException {
+		Rover rover = rovers.get(roverIndex);
 		for (char command : getCommands().toCharArray()) {
 			switch (command) {
 				case 'L':
@@ -19,7 +22,7 @@ public class LRMProgram extends Program{
 					rover.setDirection(Direction.GetRight(rover.getDirection()));
 					break;
 				case 'M':
-					rover.getPosition().moveToDirection(rover.getDirection(), plateau);
+					rover.getPosition().moveToDirection(rovers, rover.getDirection(), plateau);
 					break;
 				default:
 					throw new ProgramException(String.format("Error: Command %c not found", command));

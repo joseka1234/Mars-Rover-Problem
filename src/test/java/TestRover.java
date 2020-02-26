@@ -2,6 +2,8 @@ package test.java;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 import main.java.controller.RoverController;
 import main.java.main.Main;
@@ -15,7 +17,6 @@ import main.java.model.RoverLoadException;
 
 
 class TestRover {
-		
 	@Test
 	void test_main() {
 		assertDoesNotThrow(() -> Main.main(new String[] {".\\Data\\RoverData.data"}));
@@ -37,41 +38,36 @@ class TestRover {
 		Plateau plateau = new Plateau(10, 10);
 		Position2D position = new Position2D(1, 1);
 		
-		assertDoesNotThrow(() -> position.moveToDirection(Direction.N, plateau));
+		assertDoesNotThrow(() -> position.moveToDirection(new ArrayList<Rover>(), Direction.N, plateau));
 		assertArrayEquals(new int[] {1, 2}, new int[] {position.getX(), position.getY()});
 		
-		assertDoesNotThrow(() -> position.moveToDirection(Direction.E, plateau));
+		assertDoesNotThrow(() -> position.moveToDirection(new ArrayList<Rover>(), Direction.E, plateau));
 		assertArrayEquals(new int[] {2, 2}, new int[] {position.getX(), position.getY()});
 		
-		assertDoesNotThrow(() -> position.moveToDirection(Direction.S, plateau));
+		assertDoesNotThrow(() -> position.moveToDirection(new ArrayList<Rover>(), Direction.S, plateau));
 		assertArrayEquals(new int[] {2, 1}, new int[] {position.getX(), position.getY()});
 		
-		assertDoesNotThrow(() -> position.moveToDirection(Direction.W, plateau));
+		assertDoesNotThrow(() -> position.moveToDirection(new ArrayList<Rover>(), Direction.W, plateau));
 		assertArrayEquals(new int[] {1, 1}, new int[] {position.getX(), position.getY()});
 	}
 	
 	@Test
 	void test_rover_program_execution() {
 		Plateau plateau = new Plateau(10, 10);
-		
-		Rover r1 = new Rover(new Position2D(1,1), Direction.N);
+		Rover r1 = new Rover(new Position2D(1,1), Direction.N, new LRMProgram("LMLMRMMMRM"));
 		RoverController rc1 = new RoverController(plateau);
-		assertDoesNotThrow(() -> rc1.AddRoverProgram(r1, new LRMProgram("LMLMRMMMRM")));
+		rc1.getRovers().add(r1);
 		assertDoesNotThrow(() -> rc1.ExecuteProgram());
 		assertEquals(r1.toString(), "0 1 N");
 
 		RoverController rc2 = new RoverController(plateau);
-		assertDoesNotThrow(() -> rc2.AddRoverProgram(r1, new LRMProgram("LMLMRTM")));
+		rc2.getRovers().add(new Rover(new Position2D(1,1), Direction.N, new LRMProgram("LMLMRTM")));
 		assertThrows(ProgramException.class, () -> rc2.ExecuteProgram());
 		
-		Rover r2 = new Rover(new Position2D(0, 0), Direction.S);
+		Rover r2 = new Rover(new Position2D(0, 0), Direction.S, new LRMProgram("RRMMRMM"));
 		RoverController rc3 = new RoverController(plateau);
-		assertDoesNotThrow(() -> rc3.AddRoverProgram(r2, new LRMProgram("RRMMRMM")));
+		rc3.getRovers().add(r2);
 		assertDoesNotThrow(() -> rc3.ExecuteProgram());
 		assertEquals(r2.toString(), "2 2 E");
-		
-		RoverController rc4 = new RoverController(plateau);
-		assertThrows(ProgramException.class, () -> rc4.AddRoverProgram(null, new LRMProgram("LM")));
-		assertThrows(ProgramException.class, () -> rc4.AddRoverProgram(r1, null));
 	}
 }

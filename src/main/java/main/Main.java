@@ -36,8 +36,8 @@ public class Main {
 			int y = Integer.parseInt(roverString[1]);
 			
 			if (isRoverInsidePlateau(x, y, plateau)) {
-				Rover rover = new Rover(new Position2D(x,y), Direction.valueOf(roverString[2]));
-				controller.AddRoverProgram(new Rover(rover), new LRMProgram(br.readLine()));
+				Rover rover = new Rover(new Position2D(x,y), Direction.valueOf(roverString[2]), new LRMProgram(br.readLine()));
+				controller.getRovers().add(rover);
 			} else {
 				br.close();
 				throw new RoverLoadException("The rover is outside the plateau");
