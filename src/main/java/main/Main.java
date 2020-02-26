@@ -49,6 +49,13 @@ public class Main {
 		br.close();
 	}
 	
+	/**
+	 * Check if the rover is inside the plateau 
+	 * @param x
+	 * @param y
+	 * @param plateau
+	 * @return
+	 */
 	private static boolean isRoverInsidePlateau(int x, int y, Plateau plateau) {
 		return x <= plateau.getHeight() && x >= 0 && y <= plateau.getHeight() && y >= 0;
 	}

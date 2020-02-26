@@ -20,35 +20,8 @@ public class Rover {
 	}
 	
 	// Getters and Setters
-	/**
-	 * Returns the position
-	 * @return
-	 */
-	public Position getPosition() {
-		return this.position;
-	}
-	
-	/**
-	 * Sets the position
-	 * @param pos
-	 */
-	public void setPosition(Position pos) {
-		this.position = pos;
-	}
-	
-	/**
-	 * Returns the direction
-	 * @return
-	 */
-	public Direction getDirection() {
-		return this.direction;
-	}
-	
-	/**
-	 * Sets the direction
-	 * @param dir
-	 */
-	public void setDirection(Direction dir) {
-		this.direction = dir;
-	}
+	public Position getPosition() { return this.position; }
+	public void setPosition(Position pos) { this.position = pos; }
+	public Direction getDirection() { return this.direction; }
+	public void setDirection(Direction dir) { this.direction = dir;	}
 }

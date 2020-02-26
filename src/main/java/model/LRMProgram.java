@@ -5,6 +5,9 @@ public class LRMProgram extends Program{
 		super(commands);
 	}
 	
+	/**
+	 * Executes the program of a concrete Rover
+	 */
 	@Override
 	public void Execute(Rover rover, Plateau plateau) throws ProgramException {
 		for (char command : getCommands().toCharArray()) {

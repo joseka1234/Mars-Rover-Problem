@@ -47,7 +47,7 @@ public class RoverController {
 	}
 	
 	/**
-	 * Print the rovers in the test format
+	 * Prints the rovers in the format passed by email
 	 */
 	public void PrintRovers() {
 		for (Rover rov : getRovers()) {
@@ -56,51 +56,10 @@ public class RoverController {
 	}
 	
 	// Getters and Setters
-	/**
-	 * Gets the plateau
-	 * @return
-	 */
-	private Plateau getPlateau() {
-		return plateau;
-	}
-	
-	/**
-	 * Sets the plateau
-	 * @param plateau
-	 */
-	private void setPlateau(Plateau plateau) {
-		this.plateau = plateau;
-	}
-
-	/**
-	 * Get the rovers
-	 * @return
-	 */
-	private ArrayList<Rover> getRovers() {
-		return rovers;
-	}
-
-	/**
-	 * Set the rovers
-	 * @param rovers
-	 */
-	private void setRovers(ArrayList<Rover> rovers) {
-		this.rovers = rovers;
-	}
-
-	/**
-	 * Get the programs
-	 * @return
-	 */
-	private ArrayList<Program> getPrograms() {
-		return programs;
-	}
-
-	/**
-	 * Set the programs
-	 * @param programs
-	 */
-	private void setPrograms(ArrayList<Program> programs) {
-		this.programs = programs;
-	}
+	private Plateau getPlateau() { return plateau; }
+	private void setPlateau(Plateau plateau) { this.plateau = plateau; }
+	private ArrayList<Rover> getRovers() { return rovers; }
+	private void setRovers(ArrayList<Rover> rovers) { this.rovers = rovers; }
+	private ArrayList<Program> getPrograms() { return programs; }
+	private void setPrograms(ArrayList<Program> programs) {	this.programs = programs; }
 }

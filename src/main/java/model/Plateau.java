@@ -13,13 +13,13 @@ public class Plateau {
 	public int getWidth() {
 		return Width;
 	}
-	public void setWidth(int width) {
+	private void setWidth(int width) {
 		Width = width;
 	}
 	public int getHeight() {
 		return Height;
 	}
-	public void setHeight(int height) {
+	private void setHeight(int height) {
 		Height = height;
 	}
 	

@@ -17,19 +17,7 @@ public abstract class Program {
 	 */
 	public void Execute(Rover rover, Plateau plateau) throws ProgramException {}
 	
-	/**
-	 * Get the commands
-	 * @return
-	 */
-	protected String getCommands() {
-		return commands;
-	}
-	
-	/**
-	 * Set the commands
-	 * @param commands
-	 */
-	protected void setCommands(String commands) {
-		this.commands = commands;
-	}
+	// Getters and setters
+	protected String getCommands() { return commands; }
+	protected void setCommands(String commands) { this.commands = commands;	}
 }
